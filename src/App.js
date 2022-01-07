@@ -13,8 +13,8 @@ function App() {
      <main>
        <Location/>
        <MainInfo/>
-       <h4>5 days forcast</h4>
-       <DaysList/>
+       <h4 className='forcastHeader'>5 days forcast</h4>
+       <DaysList />
        <HourlyDetails/>
      </main>
     </>

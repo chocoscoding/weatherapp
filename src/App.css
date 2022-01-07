@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   outline: none;
+  font-family: 'Roboto', sans-serif;
+  transition: 0.3s all ease;
 }
 body{
   background: rgb(46,73,105);
@@ -91,7 +94,7 @@ main{
 .mainInfoContainer{
   margin: 1rem 0 2rem 0;
   padding: 1%;
-  width: 60%;
+  width: 63%;
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid red;
@@ -106,7 +109,6 @@ main{
 }
 .mainInfoContainer .mainDataCont{
   border: 1px solid pink;
-  width: 50%;
   min-width: 239px;
   margin: 0.5rem 0 0.5rem 0;
   display: flex;
@@ -122,11 +124,12 @@ main{
   align-items: center;
   width: max-content;
   border: 1px solid yellow;
-  width: 50%;
+  width: 200px;
   min-width: 190px;
 }
 .btminfocnt{
   overflow-x: auto;
+  position: relative;
 }
 .btminfocnt::-webkit-scrollbar{
   opacity: 50%;
@@ -155,20 +158,160 @@ main{
 .bottomInfoTitle{
   margin-bottom: 0.3rem;
 }
+.forcastHeader{
+  color: #ffffff;
+  margin: 0.5rem 0.2rem 0.5rem 0;
+}
+ .daysListContainer{
+  border: 1px solid blue;
+  position: relative;
+  display: inline-flex;
+  transition: 0.3s all ease;
+}
 
 
+.daysListChildren{
+  padding: 2% 0 0 2%;
+  transition: 0.3s all ease;
+  border: 1px solid cyan;
+  display: block;
+  overflow: hidden;
+  height: 5rem;
+  width: 8rem;
+  overflow: hidden;
+  cursor: pointer;
+}
+.daysActive{
+  background-color: #dfdfdf;
+  width: 12rem;
+}
+#daysMinInfo{
+  cursor: pointer;
+}
+.hourlyContainer{
+  border: 1px solid lime;
+  width: 100%;
+  height: 19rem;
+  position: relative;
+  margin: 0.8rem 0 0 0;
+}
+
+#line{
+  border: 1px solid red;
+  width: 99.5%;
+  height: 2px;
+  background-color: red;
+  opacity: 40%;
+  margin: 1rem auto 0 auto;
+  border-radius: 10px;
+}
+
+.hoursListContainer{
+  border: 1px solid blue;
+  position: relative;
+  display: inline-flex;
+  transition: 0.3s all ease;
+}
+
+
+.hoursListChildren{
+  transition: 0.3s all ease;
+  border: 1px solid cyan;
+  margin: 0 0.5rem;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  height: 15rem;
+  width: 8.5rem;
+  overflow: hidden;
+  cursor: pointer;
+}
+.next{
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+  right: 0;
+  z-index: 3;
+  display: none;
+  border-radius: 50%;
+  border: 1px solid transparent;
+}
+.prev{
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  cursor: pointer;
+  z-index: 3;
+  display: none;
+  border-radius: 50%;
+  border: 1px solid transparent;
+}
+#hours{
+  width: 100%;
+}
+.bottomTime{
+  border: 1px solid red;
+  height: 2rem;
+  line-height: 2rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 900px) {
+  .mainInfoContainer{
+    width: 87%;
+  }
+  
+}
+@media screen and (max-width: 768px) {
+  .next,.prev{
+    display: none !important;
+  }
+  
+}
 @media screen and (max-width: 750px) {
   .mainInfoContainer{
     width: 100%;
   }
-  
 }
 @media screen and (max-width: 350px) {
   .search-form{
     width: 100%;
+    min-width: 230px;
   }
   .degree-container{
     display: none;
   }
+  .mainInfoContainer .mainDataCont .temp{
+    width: 20%;
+    min-width: 130px;
+  }
+  .search-submit{
+    min-width: none;
+    width: 17%;
+  }
+  
 
 }
