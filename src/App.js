@@ -4,7 +4,7 @@ import { Navbar, Location, MainInfo, DaysList, HourlyDetails, OtherEvent, Footer
 
 function App() {
   const [degree, setDegree] = useState(true);
-  const [currentForcast, setCurrentForecast] = useState(1)
+  const [currentForcast, setCurrentForecast] = useState(0)
   const [fetchedInfo, setFetchedInfo] = useState([])
   const [location, setLocation] = useState([])
   const [processStatus, setProcessStatus] = useState({status: 'loading'})
