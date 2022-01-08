@@ -1,11 +1,11 @@
 import React from 'react'
 import {BiCurrentLocation} from 'react-icons/bi'
 
-const Location = () => {
+const Location = ({name, country}) => {
     return (
         <div className='location'>
             
-         <BiCurrentLocation/>   Location, Nigeria
+         <BiCurrentLocation/>   {`${name} , ${country}`}
         </div>
     )
 }

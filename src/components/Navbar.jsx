@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { BiSearchAlt } from 'react-icons/bi'
 import {RiFahrenheitFill, RiCelsiusFill} from 'react-icons/ri'
 
-const Navbar = ({degree, changedegree}) => {
+const Navbar = ({degree, changedegree, snsl}) => {
+    const [ inputText, setInputText] = useState('London')
+    const findData=(e)=>{
+        e.preventDefault();
+        snsl(inputText)
+    }
     
     return (
         <div className='nav-container'>
-            <form className="search-form">
-                <input type="text" placeholder='Search your location' className='searchInput' />
-                <button type='button' className='search-submit'> <BiSearchAlt/> </button>
+            <form className="search-form" onSubmit={findData}>
+                <input type="text" placeholder='Search your location' value={inputText} onChange={(e)=> setInputText(e.target.value)} className='searchInput' />
+                <button type='submit' className='search-submit'> <BiSearchAlt/> </button>
             </form>
 
             <div className="degree-container">

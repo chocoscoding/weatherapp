@@ -1,48 +1,63 @@
 import React from 'react'
 import {RiFahrenheitFill, RiCelsiusFill} from 'react-icons/ri'
 
-const MainInfo = () => {
+const MainInfo = ({fetchedInfo, degree}) => {
+    console.log(fetchedInfo);
+    const {localtime} = fetchedInfo.location;
+    const {text, icon} = fetchedInfo.current.condition;
+    const {temp_c, temp_f, wind_mph, humidity, vis_km, pressure_mb, wind_dir} = fetchedInfo.current;
+
     return (
         <div className='mainInfoContainer'>
+                <img src='https://source.unsplash.com/1600x900/?darkforest' alt='img' className="bdropImg"></img>
+                <div className='cover'>
             <p className="topHeading">CURRENT WEATHER</p>
-            <p className="topTime">11:30pm</p>
+            <p className="topTime">{localtime}</p>
 
             <div className="mainDataCont">
-                <img src="" alt="data" className="icon" />
+                <img src={icon} alt="data" className="icon" />
                 <div className="temp">
-                    <p>26</p> 
-                    <RiFahrenheitFill/>
+                    {degree ? (<>
+                    <p style={{fontWeight: '900', fontSize: '3.4rem'}}>{temp_f}</p> 
+                    <RiFahrenheitFill style={{ fontSize: '1.8rem'}}/>
+                    </>) : (<>
+                    <p style={{fontWeight: '900', fontSize: '3.4rem'}}>{temp_c}</p> 
+                    <RiCelsiusFill style={{ fontSize: '1.8rem'}}/>
+                    </>)}
+                    
                 </div>
             </div>
             <p className="mainCondition">
-                Haze
+                {text}
             </p>
             <div className="btminfocnt">
 
             
             <div className="bottomInfo">
                 <div className="bottomInfoChildren">
-                    <p className="bottomInfoTitle"> WIND</p>
-                    5 km/h
+                    <p className="bottomInfoTitle"> WIND DIR</p>
+                    {wind_dir}
+                    
                 </div>
                 <div className="bottomInfoChildren">
                     <p className="bottomInfoTitle"> VISIBILTY</p>
-                    5 km/h
+                    {vis_km} km
                 </div>
                 <div className="bottomInfoChildren">
-                    <p className="bottomInfoTitle"> DEW POINT</p> 
-                    5 km/h
+                    <p className="bottomInfoTitle"> WIND SPEED</p> 
+                    {wind_mph} m/h
                 </div>
                 <div className="bottomInfoChildren">
                     <p className="bottomInfoTitle"> PRESSURE</p>
-                    5 km/h
+                    {pressure_mb} mb
                 </div>
                 <div className="bottomInfoChildren">
-                    <p className="bottomInfoTitle"> HUMITY</p>
-                    5 km/h
+                    <p className="bottomInfoTitle"> HUMIDTY</p>
+                    {humidity}%
                 </div>
             </div>
             </div>
+                </div>
         </div>
     )
 }

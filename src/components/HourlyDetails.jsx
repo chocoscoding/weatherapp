@@ -1,4 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import {AiOutlineArrowRight, AiOutlineArrowLeft} from 'react-icons/ai';
+import {WiDegrees} from 'react-icons/wi'
+import {BsFillDropletFill} from 'react-icons/bs'
 
 const slide = (direction)=>{
     const screenSize = window.innerWidth;
@@ -24,7 +27,8 @@ const slide = (direction)=>{
         }
     }
 }
-const HourlyDetails = () => {
+const HourlyDetails = ({fetchedInfo, currentForcast}) => {
+    const [fecthedData, setfecthedData] = useState([])
   const scrollHoursBody = useRef(null);
 
 
@@ -78,118 +82,52 @@ const HourlyDetails = () => {
   useEffect(() => {
     interSect();
   }, []);
+  useEffect(()=>{
+      setfecthedData(fetchedInfo.forecast.forecastday)
+  },[currentForcast, fetchedInfo])
 
+  console.log(fecthedData);
+
+  function getId(index){
+      if(index === 1){
+          return 'c1'
+      }else if(index === 2){
+          return 'c2'
+      }
+      else{
+          return 'd'+index
+      }
+  }
+  const fetcheddata2 = fecthedData[currentForcast].hour;
+  console.log(fetcheddata2);
 
 
   return (
     <div className="hourlyContainer">
         <button className="next" onClick={() => move("next")}>
-          B
+        <AiOutlineArrowRight/>
         </button>
         <button className="prev" onClick={() => move("prev")}>
-          N
+          <AiOutlineArrowLeft/>
         </button>
-      HourlyDetails
+      <h4>HourlyDetails</h4>
       <div id="line"></div>
       <br />
       <div className="btminfocnt" id="hours">
         <div className="hoursListContainer" ref={scrollHoursBody}>
           <div className="hoursListChildren" id="c1">
-              <div className="bottomTime">
-                  10pm
-              </div>
-          </div>
-          <div className="hoursListChildren" >
-              <div className="bottomTime">
-                  10pm
-              </div>
-          </div>
-          <div className="hoursListChildren">
-              <div className="bottomTime">
-                  10pm
-              </div>
-          </div>
-          <div className="hoursListChildren" >
-              <div className="bottomTime">
-                  10pm
-              </div>
-          </div>
-          <div className="hoursListChildren">
-              <div className="bottomTime">
-                  10pm
-              </div>
-          </div>
-          <div className="hoursListChildren" >
-              <div className="bottomTime">
-                  10pm
-              </div>
-          </div>
-          <div className="hoursListChildren">
-              <div className="bottomTime">
-                  10pm
-              </div>
-          </div>
-          <div className="hoursListChildren">
-              <div className="bottomTime">
-                  10pm
-              </div>
-          </div>
-          <div className="hoursListChildren" >
-              <div className="bottomTime">
-                  10pm
-              </div>
-          </div>
-          <div className="hoursListChildren">
-              <div className="bottomTime">
-                  10pm
-              </div>
-          </div>
-          <div className="hoursListChildren" >
-              <div className="bottomTime">
-                  10pm
-              </div>
-          </div>
-          <div className="hoursListChildren">
-              <div className="bottomTime">
-                  10pm
-              </div>
-          </div>
-          <div className="hoursListChildren">
-              <div className="bottomTime">
-                  10pm
-              </div>
-          </div>
-          <div className="hoursListChildren">
-              <div className="bottomTime">
-                  10pm
-              </div>
-          </div>
-          <div className="hoursListChildren">
-              <div className="bottomTime">
-                  10pm
-              </div>
-          </div>
-          <div className="hoursListChildren">
-              <div className="bottomTime">
-                  10pm
-              </div>
-          </div>
-          <div className="hoursListChildren">
-              <div className="bottomTime">
-                  10pm
-              </div>
-          </div>
-          <div className="hoursListChildren">
-              <div className="bottomTime">
-                  10pm
-              </div>
-          </div>
-          <div className="hoursListChildren">
-              <div className="bottomTime">
-                  10pm
-              </div>
-          </div>
-          <div className="hoursListChildren">
+
+              <img src="//cdn.weatherapi.com/weather/64x64/day/302.png" alt="" className="icon" />
+
+              <h3 className="degree">32 <WiDegrees style={{fontSize: '20px'}}/> </h3>
+              
+              <h3 className="condition">partly cloudy</h3>
+              
+              <br />
+
+              <p className="humidity"> <BsFillDropletFill style={{fontSize: '0.5rem'}}/> 28%</p>
+              <p className="windspeed">21km/h</p>
+
               <div className="bottomTime">
                   10pm
               </div>
@@ -199,6 +137,10 @@ const HourlyDetails = () => {
                   10pm
               </div>
           </div>
+          {fetcheddata2.map((item,index)=>{
+              const {humidity} = item;
+              console.log(item);
+          })}
         </div>
       </div>
     </div>

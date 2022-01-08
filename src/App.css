@@ -8,7 +8,7 @@
   transition: 0.3s all ease;
 }
 body{
-  background: rgb(46,73,105);
+  background: #223b61;
 /* background: radial-gradient(circle, rgba(46,73,105,1) 0%, rgba(40,56,74,1) 100%); */
 }
 .nav-container{
@@ -64,7 +64,7 @@ body{
   display: flex;
   height: 90%;
   color: #ffffff;
-  border: 1px solid transparent;
+  border: none;
   overflow: hidden;
   border-radius: 10px;
   min-width: 50px;
@@ -82,7 +82,6 @@ body{
 main{
   width: 100%;
   max-width: 1200px;
-  border: 1px solid white;
   margin: auto;
   padding: 0.5%;
 }
@@ -92,23 +91,41 @@ main{
   font-size: 1.5rem;
 }
 .mainInfoContainer{
+  backdrop-filter: blur(8px) saturate(144%);
+    -webkit-backdrop-filter: blur(8px) saturate(144%);
+    background-color: rgba(17, 25, 40, 0.67);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+  position: relative;
   margin: 1rem 0 2rem 0;
-  padding: 1%;
   width: 63%;
   border-radius: 10px;
+  border: 1px solid #ffffff18;
   overflow: hidden;
-  border: 1px solid red;
   color: white;
 }
+.cover{
+  padding: 1%;
+}
+.bdropImg{
+  position: absolute;
+  z-index: -3;
+  width: 1000px;
+  height: 600px;
+  border: none;
+  /* background-image: url('https://source.unsplash.com/1600x900/?darkforest'); */
+  filter: brightness(40%);
+
+}
 .mainInfoContainer .topHeading{
-  font-size: 1.3rem;
+  font-size: 1rem;
+  font-weight: 900;
 }
 .mainInfoContainer .topTime{
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   color: #dfdfdf;
 }
 .mainInfoContainer .mainDataCont{
-  border: 1px solid pink;
   min-width: 239px;
   margin: 0.5rem 0 0.5rem 0;
   display: flex;
@@ -116,14 +133,12 @@ main{
 .mainInfoContainer .mainDataCont .icon{
   width: 130px;
   height: 130px;
-  border: 1px solid purple;
 }
 .mainInfoContainer .mainDataCont .temp{
   display: flex;
   justify-content: center;
   align-items: center;
   width: max-content;
-  border: 1px solid yellow;
   width: 200px;
   min-width: 190px;
 }
@@ -142,28 +157,34 @@ main{
   margin:0.7rem 0 3% 0;
 }
 .mainInfoContainer .bottomInfo{
-  border: 1px solid blue;
   position: relative;
   display: inline-flex;
 }
 
 .bottomInfoChildren{
   padding: 2% 0 0 2%;
-  border: 1px solid cyan;
   display: block;
   overflow: hidden;
   height: 5rem;
-  width: 9rem;
+  width: 8rem;
+  font-size: 1rem;
 }
 .bottomInfoTitle{
   margin-bottom: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 200;
+  cursor: pointer;
+  color: #dfdfdfde;
+}
+.bottomInfoTitle:hover{
+  text-decoration: underline;
+  color: white;
 }
 .forcastHeader{
   color: #ffffff;
   margin: 0.5rem 0.2rem 0.5rem 0;
 }
  .daysListContainer{
-  border: 1px solid blue;
   position: relative;
   display: inline-flex;
   transition: 0.3s all ease;
@@ -171,43 +192,85 @@ main{
 
 
 .daysListChildren{
-  padding: 2% 0 0 2%;
+  padding: 1% 0 0 2%;
   transition: 0.3s all ease;
-  border: 1px solid cyan;
+  margin-right: 0.5rem;
   display: block;
-  overflow: hidden;
-  height: 5rem;
-  width: 8rem;
+  /* overflow: hidden; */
+  height: 6.5rem;
+border-radius: 5px;
+background-color: rgba(255, 255, 255, 0.096);
+  width: 9rem;
   overflow: hidden;
   cursor: pointer;
+  position: relative;
 }
 .daysActive{
-  background-color: #dfdfdf;
-  width: 12rem;
+  background-color: #ffffff25;
+  width: 17rem;
 }
 #daysMinInfo{
   cursor: pointer;
+  color: #dfdfdf;
+  font-weight: 900;
+}
+.daysMinInfoBody{
+  width: 100%;
+  height: 80%;
+  display: flex;
+}
+.daysMinInfoBody .dic{
+  width: 50px;
+  height: 50px;
+}
+.daysMinInfoBody .mims{
+  min-width: 105px;
+  float: right;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  color: white;
+  align-items: center;
+  justify-content: center;
+}
+.daysMinInfoBody .degd{
+  color: white;
+  margin-left: 10px;
+  min-width: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-weight: 700;
+  font-size: 0.9rem;
+  align-items: center;
 }
 .hourlyContainer{
-  border: 1px solid lime;
+  border: none;
+  background-color: rgb(255 255 255 / 8%);
   width: 100%;
-  height: 19rem;
+  border-radius: 7px;
+  height: 20rem;
+  color: white;
   position: relative;
   margin: 0.8rem 0 0 0;
 }
+.hourlyContainer h4{
+  font-size: 1.3rem;
+  padding-top: 7px;
+  padding-left: 7px;
+}
 
 #line{
-  border: 1px solid red;
+  border: 1px solid #ffffff32;
   width: 99.5%;
   height: 2px;
-  background-color: red;
+  background-color:  #ffffff32;
   opacity: 40%;
   margin: 1rem auto 0 auto;
   border-radius: 10px;
 }
 
 .hoursListContainer{
-  border: 1px solid blue;
   position: relative;
   display: inline-flex;
   transition: 0.3s all ease;
@@ -216,9 +279,14 @@ main{
 
 .hoursListChildren{
   transition: 0.3s all ease;
-  border: 1px solid cyan;
-  margin: 0 0.5rem;
-  display: block;
+  border: none;
+  background: linear-gradient(
+    180deg
+    , rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.089) 41.67%);
+  margin: 0 0.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   position: relative;
   overflow: hidden;
   height: 15rem;
@@ -226,6 +294,52 @@ main{
   overflow: hidden;
   cursor: pointer;
 }
+.hoursListChildren .icon{
+  padding-left: 15px;
+  width: 70px;
+  height: 70px;
+  margin: 2px 0;
+  float: left;
+}
+
+.hoursListChildren .degree{
+  padding-left: 15px;
+  margin: 6px 0;
+}
+.hoursListChildren .condition{
+  padding-left: 15px;
+  font-size: 0.9rem;
+  color: #dfdfdfe2;
+  font-weight: 300;
+  line-break:auto
+}
+.hoursListChildren .humidity{
+  padding-left: 15px;
+  margin-bottom: 8px;
+  
+}
+.hoursListChildren .windspeed{
+  padding-left: 15px;
+
+}
+
+
+
+
+
+/* <div className="hoursListChildren" id="c1">
+
+<img src="" alt="" className="icon" />
+
+<h3 className="degree">32 <WiDegrees style={{fontSize: '20px'}}/> </h3>
+
+<h3 className="condition">partly cloudy</h3>
+
+<br /><br />
+
+<p className="humidity"> 28%</p>
+<p className="windspeed">21km/h</p> */
+
 .next{
   width: 2rem;
   height: 2rem;
@@ -234,9 +348,14 @@ main{
   cursor: pointer;
   right: 0;
   z-index: 3;
-  display: none;
   border-radius: 50%;
-  border: 1px solid transparent;
+  border: 1px solid #ffffff07;
+  background-color: #ffffff28;
+  color: #dfdfdf99;
+  display: flex;
+  justify-content: center;
+  font-size: 1.3rem;
+  align-items: center;
 }
 .prev{
   width: 2rem;
@@ -246,15 +365,21 @@ main{
   left: 0;
   cursor: pointer;
   z-index: 3;
-  display: none;
   border-radius: 50%;
-  border: 1px solid transparent;
+  border: 1px solid #ffffff07;
+  background-color: #ffffff28;
+  color: #dfdfdf99;
+  display: flex;
+  justify-content: center;
+  font-size: 1.3rem;
+  align-items: center;
 }
 #hours{
   width: 100%;
 }
 .bottomTime{
-  border: 1px solid red;
+  border: none;
+  background-color: #223b61;
   height: 2rem;
   line-height: 2rem;
   position: absolute;
@@ -285,7 +410,7 @@ main{
   }
   
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 748px) {
   .next,.prev{
     display: none !important;
   }
@@ -307,6 +432,11 @@ main{
   .mainInfoContainer .mainDataCont .temp{
     width: 20%;
     min-width: 130px;
+  }
+ #tempNo{
+
+   font-size: 3.5rem !important;
+   font-weight: 900;
   }
   .search-submit{
     min-width: none;
