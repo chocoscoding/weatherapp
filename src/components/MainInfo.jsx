@@ -2,7 +2,6 @@ import React from 'react'
 import {RiFahrenheitFill, RiCelsiusFill} from 'react-icons/ri'
 
 const MainInfo = ({fetchedInfo, degree}) => {
-    console.log(fetchedInfo);
     const {localtime} = fetchedInfo.location;
     const {text, icon} = fetchedInfo.current.condition;
     const {temp_c, temp_f, wind_mph, humidity, vis_km, pressure_mb, wind_dir} = fetchedInfo.current;

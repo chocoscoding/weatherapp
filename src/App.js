@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import './App.css';
-import { Navbar, Location, MainInfo, DaysList, HourlyDetails, OtherEvent } from './components/index'
+import { Navbar, Location, MainInfo, DaysList, HourlyDetails, OtherEvent, Footer } from './components/index'
 
 function App() {
   const [degree, setDegree] = useState(true);
@@ -61,9 +61,10 @@ function App() {
           <MainInfo fetchedInfo={fetchedInfo} degree={degree}/>
           <h4 className='forcastHeader'>3 days forcast</h4>
           <DaysList setForecast={setForecast} degree={degree} fetchedInfo={fetchedInfo}/>
-          <HourlyDetails currentForcast={currentForcast} fetchedInfo={fetchedInfo}/>
+          <HourlyDetails currentForcast={currentForcast} degree={degree} fetchedInfo={fetchedInfo}/>
         </main>) : (<OtherEvent processStatus={processStatus} />)
       }
+      <Footer/>
 
     </>
   );

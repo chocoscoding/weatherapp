@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, {useState } from 'react';
 import { BiSearchAlt } from 'react-icons/bi'
 import {RiFahrenheitFill, RiCelsiusFill} from 'react-icons/ri'
 

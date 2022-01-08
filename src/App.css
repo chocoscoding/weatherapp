@@ -387,7 +387,31 @@ background-color: rgba(255, 255, 255, 0.096);
   width: 100%;
   text-align: center;
 }
-
+.footer{
+  width: 100%;
+  overflow: hidden;
+  padding: 1%;
+  background-color: #000000e0;
+  text-align: center;
+  position: relative;
+  color: #dfdfdf;
+}
+.footer p a {
+  color: white;
+}
+.remove{
+  color: red;
+  border: none;
+  background-color: transparent;
+  float: left;
+  position: absolute;
+  height: 100%;
+  font-size: 1rem;
+  top: 0;
+  right: 4%;
+  font-weight: 900;
+  margin-top:3px;
+}
 
 
 
@@ -424,7 +448,7 @@ background-color: rgba(255, 255, 255, 0.096);
 @media screen and (max-width: 350px) {
   .search-form{
     width: 100%;
-    min-width: 230px;
+    min-width: 210px;
   }
   .degree-container{
     display: none;
@@ -442,6 +466,41 @@ background-color: rgba(255, 255, 255, 0.096);
     min-width: none;
     width: 17%;
   }
-  
+  .search-form{
+    height: 70%;
+  }
+  .searchInput{
+    font-size: 0.8em;
+    padding-left: 3%;
+  }
+  .search-submit{
+    font-size: 0.8em;
+  }
+  .mainInfoContainer .mainDataCont .icon{
+    width: 90px;
+    height: 90px;
+  }
+  .temp p{
+    font-size: 3rem !important;
+  }
 
+  .location{
+    color: white;
+    font-weight: 800;
+    font-size: 1.1rem;
+  }
+  .bottomInfoChildren{
+    width: 6rem;
+  }
+
+  .mainInfoContainer .topTime{
+    font-size: 0.8rem;
+    margin-top: 4px;
+  }
+}
+
+@media screen and (max-width:300px) {
+  .mainInfoContainer .topTime{
+    font-size: 0.7rem;
+  }
 }

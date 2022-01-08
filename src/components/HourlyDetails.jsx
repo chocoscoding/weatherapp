@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef} from "react";
 import {AiOutlineArrowRight, AiOutlineArrowLeft} from 'react-icons/ai';
 import {WiDegrees} from 'react-icons/wi'
 import {BsFillDropletFill} from 'react-icons/bs'
@@ -27,8 +27,13 @@ const slide = (direction)=>{
         }
     }
 }
-const HourlyDetails = ({fetchedInfo, currentForcast}) => {
-    const [fecthedData, setfecthedData] = useState([])
+function getFinalTime(time){
+    let arr1 =time.split('');
+    let count = arr1.length -5;
+    arr1.splice(0, count);
+    return arr1.join('').toString();
+}
+const HourlyDetails = ({fetchedInfo, currentForcast, degree}) => {
   const scrollHoursBody = useRef(null);
 
 
@@ -82,24 +87,18 @@ const HourlyDetails = ({fetchedInfo, currentForcast}) => {
   useEffect(() => {
     interSect();
   }, []);
-  useEffect(()=>{
-      setfecthedData(fetchedInfo.forecast.forecastday)
-  },[currentForcast, fetchedInfo])
-
-  console.log(fecthedData);
 
   function getId(index){
-      if(index === 1){
+      if(index === 0){
           return 'c1'
-      }else if(index === 2){
+      }else if(index === 23){
           return 'c2'
       }
       else{
           return 'd'+index
       }
   }
-  const fetcheddata2 = fecthedData[currentForcast].hour;
-  console.log(fetcheddata2);
+  const fetcheddata2 = fetchedInfo.forecast.forecastday[currentForcast];
 
 
   return (
@@ -115,32 +114,34 @@ const HourlyDetails = ({fetchedInfo, currentForcast}) => {
       <br />
       <div className="btminfocnt" id="hours">
         <div className="hoursListContainer" ref={scrollHoursBody}>
-          <div className="hoursListChildren" id="c1">
+          {fetcheddata2.hour.map((item,index)=>{
+              const {humidity, temp_f, temp_c, wind_kph, time} = item;
+              const {icon, text} = item.condition;
+                getFinalTime(time)
+                getId(index)
 
-              <img src="//cdn.weatherapi.com/weather/64x64/day/302.png" alt="" className="icon" />
+                return (
+                    <div className="hoursListChildren" key={index} id={`${getId(index)}`}>
 
-              <h3 className="degree">32 <WiDegrees style={{fontSize: '20px'}}/> </h3>
+              <img src={icon} alt={text} className="icon" />
+
+              <h3 className="degree">{degree ? temp_f: temp_c} <WiDegrees style={{fontSize: '20px'}}/> </h3>
               
-              <h3 className="condition">partly cloudy</h3>
+              <h3 className="condition">{text}</h3>
               
               <br />
 
-              <p className="humidity"> <BsFillDropletFill style={{fontSize: '0.5rem'}}/> 28%</p>
-              <p className="windspeed">21km/h</p>
+              <p className="humidity"> <BsFillDropletFill style={{fontSize: '0.5rem'}}/> {humidity}%</p>
+              <p className="windspeed">{wind_kph}km/h</p>
 
               <div className="bottomTime">
-                  10pm
+                  {getFinalTime(time)}
               </div>
           </div>
-          <div className="hoursListChildren" id="c2">
-              <div className="bottomTime">
-                  10pm
-              </div>
-          </div>
-          {fetcheddata2.map((item,index)=>{
-              const {humidity} = item;
-              console.log(item);
+                )
+
           })}
+          {}
         </div>
       </div>
     </div>

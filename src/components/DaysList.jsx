@@ -3,7 +3,6 @@ import {WiDegrees} from 'react-icons/wi'
 import {BsFillDropletFill} from 'react-icons/bs'
 
 const DaysList = ({setForecast,degree, fetchedInfo}) => {
-  console.log(degree);
   const {forecastday} = fetchedInfo.forecast;
 
 
