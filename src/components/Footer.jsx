@@ -1,7 +1,7 @@
 import React from 'react';
 import {AiOutlineCloseCircle} from 'react-icons/ai'
 function hideme(){
-    document.querySelector('.footer').remove()
+    document.querySelector('.footer').style.display = 'none'
 }
 const Footer = () => {
     return (
